@@ -143,6 +143,7 @@ spec:
       - No unnecessary code, comments, or dead variables
       - Changes are minimal and focused — no unrelated refactoring
       - Naming is clear and consistent with the codebase
+      - If API types or CRDs changed: is the API surface minimal? Only immediately needed fields should be added — speculative fields should be deferred
 
       ### 5. Submit the review
       Submit a review using `gh pr review {{.Number}}`:

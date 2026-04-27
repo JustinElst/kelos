@@ -153,6 +153,7 @@ spec:
       - Are there breaking changes to existing field semantics?
       - Is the field or type correctly versioned (alpha/beta/stable)?
       - Are deprecated fields marked with `+deprecated` and documented?
+      - Is the API surface minimal — only fields immediately needed, no speculative additions? API is hard to change once shipped
 
       **CRD and validation**:
       - Are kubebuilder validation markers correct and complete?

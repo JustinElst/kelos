@@ -10,6 +10,7 @@
 - **Kubernetes resource comparison.** Use semantic `.Equal()` or `.Cmp()` methods for `resource.Quantity` comparisons, not `reflect.DeepEqual` — structurally different Quantity values can be semantically identical (e.g., `1000m` vs `1` CPU).
 - **Never use `os.Getenv()` for secrets as Go `flag` defaults.** Go's `flag` package prints default values in usage/help output, which leaks secret values. Instead, use an empty default and read the env var after `flag.Parse()`.
 - **Fail fast on invalid configuration.** Do not silently fall back to degraded behavior (e.g., unauthenticated requests) when configuration or credentials are invalid or missing. Return an error or exit immediately instead of returning nil or empty values that mask the failure.
+- **Keep API surfaces minimal.** When adding new API fields, types, or CRD changes, include only what is immediately needed. Do not add speculative fields — API is hard to change once shipped. Start with the minimum viable API and extend in follow-up PRs.
 
 ## Key Makefile Targets
 - `make verify` — run all verification checks (lint, fmt, vet, etc.).
